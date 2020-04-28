@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Personality detector</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style type="text/css">
+body{
+font-family: times new roman;
+font-size:18px;
+background-color: #def;
+}
+h1{
+text-align:center;
+text-decoration:underline;
+}
+h2{
+color: #FA9504;
+text-align: center;
+}
+h3{
+text-align:center;
+}
+div{
+text-align:center;
+}
+a:link{
+color:#F19B16;
+}
+a:active{
+color:#000000;}
+
+</style>
+</head>
+
+<body>
+<div class="container">
+    <div class="jumbotron">
+        {% if answered %}
+            <h1>YOUR PERSONALITY IS OF FOLLOWING TYPE</h1>
+            <br><br>
+            <div class="container">
+               <h3>{{ans}}</h3> 
+            </div>
+
+        {% else %}
+        <h1>Enter your twitter handle below</h1>
+        <form action="{% url 'handle' %}" method="POST">
+        	{% csrf_token %}
+		    <br><br>
+            <span >@</span>
+		    <input type="text" name="handle" placeholder="Enter twitter_handle">
+
+		    <input type="submit" value="submit">
+            
+        </form>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>

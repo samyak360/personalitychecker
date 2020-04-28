@@ -1,0 +1,176 @@
+<html>
+<head>
+	<title>Myers-Briggs Type Indicator</title>
+	<style type="text/css">
+	
+	div {
+		width: 50%;
+		float: left;
+	}
+	h2{
+	text-align:center;
+	}
+	div.odd {
+		background-color: #def;
+	}
+	h1{
+	text-align: center;}
+	hr {
+	
+		margin: 1em;
+		clear: both;
+	}
+	#reset{
+	font-size: 16px;
+	}
+	#space{
+	font-size: 16px;
+	margin-top: 20px;
+	margin-left:600px;
+	
+	}
+	
+	</style>
+	<script type="text/javascript" language="javascript">
+	function calc() {
+		var cats = new Array(4);
+		cats[0] = 'ei';
+		cats[1] = 'sn';
+		cats[2] = 'tf';
+		cats[3] = 'jp';
+		
+		var sizes = new Array(4);
+		sizes[0] = 9;
+		sizes[1] = 10;
+		sizes[2] = 8;
+		sizes[3] = 7;
+		
+		var leftCount = new Array(4);
+		
+		var profiles = new Array(16);
+		profiles['ENFJ'] = '"Pedagogue".\nOutstanding leader of groups.  Can be aggressive at helping others to be the best that they can be.  5% of the total population.';
+		profiles['ENFP'] = '"Journalist".\nUncanny sense of motivation of others.  Life is an exciting drama.  5% of the total population.';
+		profiles['ENTJ'] = '"Field Marshall".\nThe basic driving force ande is to lead.  Tend to seek a position of responsibility and enjoys being an executive.  5% of the total population.';
+		profiles['ENTP'] = '"Inventor".\nEnthusiastic interest in everything and always sensitive to possibilities.  Non-conformist and innovative.  5% of the total population.';
+		profiles['INFJ'] = '"Author".\nStrong drive and enjoyment to help others.  Complex personality.  1% of the total population.';
+		profiles['INFP'] = '"Questioner".\nHigh capacity for caring.  Calm and pleasant face to the world.  High sense of honor derived from internal values.  1% of the total population.';
+		profiles['INTJ'] = '"Scientist".\nMost self-confident and pragmatic of all the types.  Decisions come very easily.  A builder of systems and the applier of theoretical models.  1% of the total population.';
+		profiles['INTP'] = '"Architect".\nGreatest precision in thought and language.  Can readily discern contradictions and inconsistencies.  The world exists primarily to be understood.  1% of the total population.';
+		profiles['ESFJ'] = '"Seller".\nMost sociable of all types.  Nurturer of harmony.  Outstanding host or hostessess.  13% of the total population.';
+		profiles['ESFP'] = '"Entertainer".\nRadiates attractive warmth and optimism.  Smooth, witty, charming, and clever.  Fun to be with.  Very generous.  13% of the total population.';
+		profiles['ESTJ'] = '"Administrator".\nMuch in touch with the external environment.  Very responsible.  Pillar of strength.  13% of the total population.';
+		profiles['ESTP'] = '"Promoter".\nAction!  When present, things begin to happen.  Fiercely competitive.  Entrepreneur.  Often uses shock effect to get attention.  Negotiator par excellence.  13% of the total population.';
+		profiles['ISFJ'] = '"Conservator".\nDesires to be of service and a minister to individual needs - very loyal.  6% of the total population.';
+		profiles['ISFP'] = '"Artist".\nInterested in the fine arts.  Expression primarily through action or art form.  The senses are keener than in other types.  5% of the total population.';
+		profiles['ISTJ'] = '"Trustee".\nDecisiveness in practical affairs.  Guardian of time-honored institutions.  Dependable.  6% of the total population.';
+		profiles['ISTP'] = '"Artisan".\nImpulsive action.  Life should be of impulse rather than of purpose.  Action is an end to itself.  Fearless, craves excitement, master of tools.  5% of the total population.';
+		
+		for (i = 0; i < cats.length; i++) {
+			leftCount[i] = 0;
+			for (j = 1; j <= sizes[i]; j++) {
+				var name1 = cats[i] + j + '_1';
+				var name2 = cats[i] + j + '_2';
+				var option1 = document.getElementById(name1);
+				var option2 = document.getElementById(name2);
+				var answer = document.getElementById(name1).checked ? 1 : 2;
+				if (answer == 1) leftCount[i]++;
+			}
+		}
+		
+		var results = '';
+		for (i = 0; i < cats.length; i++) {
+			var moreLeft = leftCount[i] > (sizes[i] / 2);
+			var catNum = moreLeft ? 0 : 1;
+			var cat = cats[i].substring(catNum,catNum + 1);
+			results += cat.toUpperCase();
+		}
+		
+		alert("You are : "+ profiles[results]);
+	}
+	</script>
+</head>
+<body>
+<h1>Myers-Briggs Type Indicator</h1>
+<!-- <p>The Myers-Briggs Type Indicator is an industry-standard personality test that works by identifying which of two classes of person you are in four distinct areas.  With two possible classes in four areas, there are 2x2x2x2 = 16 different personality types possible, each with a different frequency of occurance among the population.</p> -->
+
+<h2>For each of the below statements, select the one that accurately describes you.</h2>
+
+<form name="myers-brigs" id="myers-brigs" method="post" action="myers-briggs.html" onsubmit="calc(); return false;">
+	<div class="odd"><input type="radio" name="ei1" value="1" id="ei1_1" /><span>Like variety and action</span></div>
+	<div class="odd"><input type="radio" name="ei1" value="2" id="ei1_2" /><span>Like quiet for concentration</span></div>
+	<div class="even"><input type="radio" name="ei2" value="1" id="ei2_1" /><span>Tend to work fast, dislike complicated procedures</span></div>
+	<div class="even"><input type="radio" name="ei2" value="2" id="ei2_2" /><span>Tend to be careful with details, dislike sweeping statements</span></div>
+	<div class="odd"><input type="radio" name="ei3" value="1" id="ei3_1" /><span>Are often good at greeting people</span></div>
+	<div class="odd"><input type="radio" name="ei3" value="2" id="ei3_2" /><span>Have trouble remembering names and faces</span></div>
+	<div class="even"><input type="radio" name="ei4" value="1" id="ei4_1" /><span>Are often impatient with long slow jobs</span></div>	
+	<div class="even"><input type="radio" name="ei4" value="2" id="ei4_2" /><span>Tend not to mind working on one project for a long time uninterruptedly</span></div>
+	<div class="odd"><input type="radio" name="ei5" value="1" id="ei5_1" /><span>Are interested in the result of your job, in getting it done and in how other people do it</span></div>	
+	<div class="odd"><input type="radio" name="ei5" value="2" id="ei5_2" /><span>Are interested in the idea behind your job</span></div>
+	<div class="even"><input type="radio" name="ei6" value="1" id="ei6_1" /><span>Often do not mind interruption of answering the phone</span></div>	
+	<div class="even"><input type="radio" name="ei6" value="2" id="ei6_2" /><span>Dislike telephone intrusions and interruptions</span></div>
+	<div class="odd"><input type="radio" name="ei7" value="1" id="ei7_1" /><span>Often act quickly, sometimes without thinking</span></div>	
+	<div class="odd"><input type="radio" name="ei7" value="2" id="ei7_2" /><span>Like to think a lot before you act, sometimes without acting</span></div>
+	<div class="even"><input type="radio" name="ei8" value="1" id="ei8_1" /><span>Like to have people around</span></div>
+	<div class="even"><input type="radio" name="ei8" value="2" id="ei8_2" /><span>Work contentedly alone</span></div>
+	<div class="odd"><input type="radio" name="ei9" value="1" id="ei9_1" /><span>Usually communicate freely</span></div>
+	<div class="odd"><input type="radio" name="ei9" value="2" id="ei9_2" /><span>Have some problems communicating</span></div>
+	<hr />
+	<div class="even"><input type="radio" name="sn1" value="1" id="sn1_1" /><span>Dislike new problems unless there are standard ways to solve them</span></div>	
+	<div class="even"><input type="radio" name="sn1" value="2" id="sn1_2" /><span>Like solving new problems</span></div>
+	<div class="odd"><input type="radio" name="sn2" value="1" id="sn2_1" /><span>Like an established way of doing things</span></div>
+	<div class="odd"><input type="radio" name="sn2" value="2" id="sn2_2" /><span>Dislike doing the same things repeatedly</span></div>
+	<div class="even"><input type="radio" name="sn3" value="1" id="sn3_1" /><span>Enjoy using skills already learned more than learning new ones</span></div>	
+	<div class="even"><input type="radio" name="sn3" value="2" id="sn3_2" /><span>Enjoy learning a new skill more than using it</span></div>
+	<div class="odd"><input type="radio" name="sn4" value="1" id="sn4_1" /><span>Work steadily, with realistic idea of how long it will take</span></div>
+	<div class="odd"><input type="radio" name="sn4" value="2" id="sn4_2" /><span>Work in burst of energy powered by enthusiasm, with slack periods in between</span></div>
+	<div class="even"><input type="radio" name="sn5" value="1" id="sn5_1" /><span>Usually reach a conclusion step by step</span></div>	
+	<div class="even"><input type="radio" name="sn5" value="2" id="sn5_2" /><span>Reach a conclusion quickly</span></div>
+	<div class="odd"><input type="radio" name="sn6" value="1" id="sn6_1" /><span>Are patient with routine details</span></div>
+	<div class="odd"><input type="radio" name="sn6" value="2" id="sn6_2" /><span>Are impatient with routine details</span></div>
+	<div class="even"><input type="radio" name="sn7" value="1" id="sn7_1" /><span>Are impatient when the details get complicated</span></div>	
+	<div class="even"><input type="radio" name="sn7" value="2" id="sn7_2" /><span>Are patient with complicated situations</span></div>
+	<div class="odd"><input type="radio" name="sn8" value="1" id="sn8_1" /><span>Are not often inspired, and rarely trust the inspiration when you are</span></div>
+	<div class="odd"><input type="radio" name="sn8" value="2" id="sn8_2" /><span>Follow your inspiration, good or bad</span></div>
+	<div class="even"><input type="radio" name="sn9" value="1" id="sn9_1" /><span>Seldom make errors of fact</span></div>
+	<div class="even"><input type="radio" name="sn9" value="2" id="sn9_2" /><span>Frequently make errors of fact</span></div>
+	<div class="odd"><input type="radio" name="sn10" value="1" id="sn10_1" /><span>Tend to be good at precise work</span></div>
+	<div class="odd"><input type="radio" name="sn10" value="2" id="sn10_2" /><span>Dislike taking time for precision</span></div>
+	<hr />
+	<div class="even"><input type="radio" name="tf1" value="1" id="tf1_1" /><span>Do not show emotion readily and are often uncomfortable dealing with people's feelings</span></div>	
+	<div class="even"><input type="radio" name="tf1" value="2" id="tf1_2" /><span>Tend to be very aware of other people and their feelings.</span></div>
+	<div class="odd"><input type="radio" name="tf2" value="1" id="tf2_1" /><span>May hurt people's feelings without knowing it</span></div>
+	<div class="odd"><input type="radio" name="tf2" value="2" id="tf2_2" /><span>Enjoy pleasing people, even in unimportant things.</span></div>
+	<div class="even"><input type="radio" name="tf3" value="1" id="tf3_1" /><span>Like analysis and putting things into logical order, can get along without harmony</span></div>
+	<div class="even"><input type="radio" name="tf3" value="2" id="tf3_2" /><span>Like harmony.  Efficiency may be badly disturbed by office feuds</span></div>
+	<div class="odd"><input type="radio" name="tf4" value="1" id="tf4_1" /><span>Tend to decide impersonally, sometimes paying insufficient attention to people's wishes</span></div>
+	<div class="odd"><input type="radio" name="tf4" value="2" id="tf4_2" /><span>Often let decisions be influenced by your own or other people's personal likes and wishes</span></div>
+	<div class="even"><input type="radio" name="tf5" value="1" id="tf5_1" /><span>Need to be treated fairly</span></div>	
+	<div class="even"><input type="radio" name="tf5" value="2" id="tf5_2" /><span>Need occasional praise</span></div>
+	<div class="odd"><input type="radio" name="tf6" value="1" id="tf6_1" /><span>Are able to reprimand people or fire them when necessary</span></div>
+	<div class="odd"><input type="radio" name="tf6" value="2" id="tf6_2" /><span>Dislike telling people unpleasant things</span></div>
+	<div class="even"><input type="radio" name="tf7" value="1" id="tf7_1" /><span>Are more analytically oriented; respond more easily to people's thoughts</span></div>
+	<div class="even"><input type="radio" name="tf7" value="2" id="tf7_2" /><span>Are more people-oriented; respond more easily to people's values</span></div>
+	<div class="odd"><input type="radio" name="tf8" value="1" id="tf8_1" /><span>Tend to be firm-minded</span></div>	
+	<div class="odd"><input type="radio" name="tf8" value="2" id="tf8_2" /><span>Tend to be sympathetic</span></div>
+	<hr />
+	<div class="even"><input type="radio" name="jp1" value="1" id="jp1_1" /><span>Work best when you can plan your work and follow the plan</span></div>
+	<div class="even"><input type="radio" name="jp1" value="2" id="jp1_2" /><span>Adapt well to changing situations</span></div>
+	<div class="odd"><input type="radio" name="jp2" value="1" id="jp2_1" /><span>Like to get things settled and finished</span></div>	
+	<div class="odd"><input type="radio" name="jp2" value="2" id="jp2_2" /><span>Do not mind leaving things open for alterations</span></div>
+	<div class="even"><input type="radio" name="jp3" value="1" id="jp3_1" /><span>May decide things too quickly</span></div>	
+	<div class="even"><input type="radio" name="jp3" value="2" id="jp3_2" /><span>May have trouble making decisions</span></div>
+	<div class="odd"><input type="radio" name="jp4" value="1" id="jp4_1" /><span>May dislike to interrupt the project you are working on for a more urgent one</span></div>
+	<div class="odd"><input type="radio" name="jp4" value="2" id="jp4_2" /><span>May start too many projects and have difficulty finishing them</span></div>
+	<div class="even"><input type="radio" name="jp5" value="1" id="jp5_1" /><span>May not notice new things that need to be done</span></div>
+	<div class="even"><input type="radio" name="jp5" value="2" id="jp5_2" /><span>May postpone unpleasant jobs</span></div>
+	<div class="odd"><input type="radio" name="jp6" value="1" id="jp6_1" /><span>Want only the essentials needed to begin your work</span></div>	
+	<div class="odd"><input type="radio" name="jp6" value="2" id="jp6_2" /><span>Want to know all about a new job</span></div>
+	<div class="even"><input type="radio" name="jp7" value="1" id="jp7_1" /><span>Tend to be satisfied once you reach a judgment on a thing, situation, or person</span></div>	
+	<div class="even"><input type="radio" name="jp7" value="2" id="jp7_2" /><span>Tend to be curious and welcome new information on a thing, situation, or person</span></div>
+	<hr/>
+	
+	<input id="space" type="submit" value="Calculate" />
+	<input id="reset" type="reset" value="Reset"  />
+</form>
+</body>
+</html>

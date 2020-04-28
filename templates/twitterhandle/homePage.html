@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Personality detector</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style type="text/css">
+body{
+font-family: times new roman;
+font-size:18px;
+background-color: #def;
+}
+h1{
+text-align:center;
+text-decoration:underline;
+}
+h2{
+color: #FA9504;
+text-align: center;
+}
+h3{
+text-align:center;
+}
+div{
+text-align:center;
+}
+a:link{
+color:#F19B16;
+}
+a:active{
+color:#000000;}
+
+</style>
+</head>
+
+<body>
+<h1>Personality Detection Application</h1>
+<br/>
+<p>	 Personality is a combination of an individual’s behavior, emotion, motivation, and thoughtpattern characteristics. Our personality has great impact on our lives; it affects our life choices, well-being health, and numerous other preferences.</p>
+<ul>The most widely accepted personality traits are the Big Five:
+<li>Openness
+<li>Conscientiousness
+<li>Extraversion
+<li>Agreeableness
+<li>Neuroticism
+<li type="none">To learn more about each personality trait <a href="{% url 'details' %}">click here</a>
+</ul>
+<br/>
+<h2>Detect your personality here</h2>
+<div class="row">
+<div class="col-6">
+<h3><a href="{% url 'handle' %}">Using twitter handle</a></h3>
+<!-- <button id="click" value="Click Here">Click Here</button> -->
+</div>
+<div class="col-6">
+<h3><a href="{% url 'myers' %}">Using Myers–Briggs Type Indicator</a></h3>
+<!-- <button id="click" value="Click Here">Click Here</button> -->
+</div>
+</div>
+
+
+</body>
+</html>
